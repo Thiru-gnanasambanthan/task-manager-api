@@ -1,6 +1,6 @@
 # Task Manager REST API
 
-[![CI](https://github.com/YOUR_USERNAME/task-manager-api/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/task-manager-api/actions/workflows/ci.yml)
+[![CI](https://github.com/Thiru-gnanasambanthan/task-manager-api/actions/workflows/ci.yml/badge.svg)](https://github.com/Thiru-gnanasambanthan/task-manager-api/actions/workflows/ci.yml)
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue)
