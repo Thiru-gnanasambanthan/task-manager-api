@@ -1,0 +1,76 @@
+### 1. Register
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123",
+  "name": "Test User"
+}
+
+### 2. Login (copy the token below into every request that follows)
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### 3. Login with wrong password (should return clean 401)
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "wrongpassword"
+}
+
+### 4. Create a project
+POST http://localhost:8080/api/projects
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzg2NDQ1OTM4LCJleHAiOjE3ODY1MzIzMzh9.xSZ9xElf2wK_HS6lXnb6cxoKQ_1wl9r-yVWth_WiQuQaCjH2YLze0KzKcdxxd7DeTS0_vNlis-RRBMKjyJmKXw
+
+{
+  "name": "Website Redesign",
+  "description": "Q3 marketing site overhaul"
+}
+
+### 5. Get all my projects
+GET http://localhost:8080/api/projects
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzg2NDQ1OTM4LCJleHAiOjE3ODY1MzIzMzh9.xSZ9xElf2wK_HS6lXnb6cxoKQ_1wl9r-yVWth_WiQuQaCjH2YLze0KzKcdxxd7DeTS0_vNlis-RRBMKjyJmKXw
+
+### 6. Create a task (paste project id from step 4)
+POST http://localhost:8080/api/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzg2NDQ1OTM4LCJleHAiOjE3ODY1MzIzMzh9.xSZ9xElf2wK_HS6lXnb6cxoKQ_1wl9r-yVWth_WiQuQaCjH2YLze0KzKcdxxd7DeTS0_vNlis-RRBMKjyJmKXw
+
+{
+  "title": "Design homepage mockup",
+  "description": "Create Figma mockup for new homepage",
+  "status": "TODO",
+  "priority": "HIGH",
+  "dueDate": "2026-09-01",
+  "projectId": "862651fa-1017-4b23-ba9d-6fc8e8ae7f46"
+}
+
+### 7. Get all my tasks
+GET http://localhost:8080/api/tasks
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzg2NDQ1OTM4LCJleHAiOjE3ODY1MzIzMzh9.xSZ9xElf2wK_HS6lXnb6cxoKQ_1wl9r-yVWth_WiQuQaCjH2YLze0KzKcdxxd7DeTS0_vNlis-RRBMKjyJmKXw
+
+### 8. Get tasks for a project, filtered by status
+GET http://localhost:8080/api/tasks/project/862651fa-1017-4b23-ba9d-6fc8e8ae7f46?status=TODO
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzg2NDQ1OTM4LCJleHAiOjE3ODY1MzIzMzh9.xSZ9xElf2wK_HS6lXnb6cxoKQ_1wl9r-yVWth_WiQuQaCjH2YLze0KzKcdxxd7DeTS0_vNlis-RRBMKjyJmKXw
+
+### 9. Add a comment (paste task id from step 6)
+POST http://localhost:8080/api/tasks/f34693da-960a-4f1c-be78-523e20517f0f/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzg2NDQ1OTM4LCJleHAiOjE3ODY1MzIzMzh9.xSZ9xElf2wK_HS6lXnb6cxoKQ_1wl9r-yVWth_WiQuQaCjH2YLze0KzKcdxxd7DeTS0_vNlis-RRBMKjyJmKXw
+
+{
+  "content": "Started working on the wireframes today."
+}
+
+### 10. Get all comments on that task
+GET http://localhost:8080/api/tasks/f34693da-960a-4f1c-be78-523e20517f0f/comments
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzg2NDQ1OTM4LCJleHAiOjE3ODY1MzIzMzh9.xSZ9xElf2wK_HS6lXnb6cxoKQ_1wl9r-yVWth_WiQuQaCjH2YLze0KzKcdxxd7DeTS0_vNlis-RRBMKjyJmKXw
